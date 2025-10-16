@@ -15,8 +15,18 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ["amazon_order_id", "sku", "title", "customer_name", "customer_email", "order_date", "amount"]
+        labels = {
+            'sku': 'SKU (Stock Keeping Unit)',
+        }
+        help_texts = {
+            'sku': 'Unique identifier used by sellers to track product inventory and variants',
+        }
         widgets = {
             "order_date": forms.DateTimeInput(attrs={"type": "datetime-local"}),
+            'sku': forms.TextInput(attrs={
+                'title': 'Stock Keeping Unit - Unique identifier used by sellers to track product inventory and variants',
+                'placeholder': 'Enter product SKU',
+            }),
         }
 
 class ReturnForm(forms.ModelForm):
