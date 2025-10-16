@@ -126,20 +126,32 @@ Ready to deploy to the internet? The [SETUP_GUIDE.md](SETUP_GUIDE.md) includes d
 ## 📁 Project Structure
 
 ```
-disputes-manager/
+amazon-dispute-manager/
+├── .github/                      # GitHub templates and workflows
 ├── setup-documentation/          # 📚 You are here!
+│   ├── README.md                # This file - setup documentation overview
 │   ├── SETUP_GUIDE.md           # Complete beginner's guide
-│   ├── QUICK_REFERENCE.md       # Commands and URLs
-│   ├── setup.ps1                # Windows setup script
-│   ├── setup.sh                 # macOS/Linux setup script
-│   └── README.md                # This file
-├── amazon_dispute_manager/       # 🚀 Main project
-│   ├── docker-compose.yml       # Container configuration
-│   ├── Dockerfile               # Web app container
-│   ├── manage.py                # Django management
-│   ├── core/                    # Application code
-│   └── ...                      # Other project files
-└── README.md                     # Project overview
+│   ├── QUICK_REFERENCE.md       # Commands and URLs reference
+│   ├── ORGANIZATION_OVERVIEW.md # Documentation organization notes
+│   ├── setup.ps1                # Windows automated setup script
+│   └── setup.sh                 # macOS/Linux automated setup script
+├── amazon_dispute_manager/       # 🚀 Main Django project
+│   ├── amazon_dispute_manager/  # Django settings and configuration
+│   ├── core/                    # Main application code
+│   ├── static/                  # Static files directory  
+│   ├── staticfiles/             # Collected static files
+│   ├── docker-compose.yml       # Container orchestration
+│   ├── Dockerfile               # Web application container
+│   ├── requirements.txt         # Python dependencies
+│   ├── manage.py                # Django management commands
+│   ├── .env                     # Environment variables
+│   ├── README.md                # Project-specific documentation
+│   └── db.sqlite3               # Local database file
+├── venv/                        # Python virtual environment
+├── README.md                    # Main project overview
+├── LICENSE                      # MIT License
+├── .gitignore                   # Git ignore rules
+└── requirements.txt             # Root-level dependencies
 ```
 
 ## 🎉 Success Checklist

@@ -2,28 +2,43 @@
 
 All setup documentation has been moved to the `setup-documentation/` folder outside the main project directory. This keeps the project clean while providing comprehensive setup instructions for new users.
 
-##  New Folder Structure
+## 📁 New Folder Structure
 
 ```
-disputes-manager/
-├── setup-documentation/          #  All setup docs are here!
+amazon-dispute-manager/
+├── .github/                      # GitHub templates and workflows
+├── setup-documentation/          
 │   ├── README.md                 # Overview of all documentation
-│   ├── SETUP_GUIDE.md           # Complete beginner's guide (447 lines)
+│   ├── SETUP_GUIDE.md           # Complete beginner's guide (430+ lines)
 │   ├── QUICK_REFERENCE.md       # Essential commands & URLs
+│   ├── ORGANIZATION_OVERVIEW.md # This file - documentation organization
 │   ├── setup.ps1                # Windows automated setup script
 │   └── setup.sh                 # macOS/Linux automated setup script
-└── amazon_dispute_manager/       #  Clean project directory
-    ├── docker-compose.yml        # No setup docs cluttering the project
-    ├── Dockerfile
-    ├── README.md                 # Updated to point to setup-documentation/
-    └── ...                       # Rest of project files
+├── amazon_dispute_manager/       
+│   ├── amazon_dispute_manager/  # Django settings and configuration
+│   ├── core/                    # Main application logic
+│   ├── static/                  # Static files directory
+│   ├── staticfiles/             # Collected static files
+│   ├── docker-compose.yml       # Container orchestration
+│   ├── Dockerfile               # Web application container
+│   ├── requirements.txt         # Python dependencies
+│   ├── manage.py                # Django management
+│   ├── .env                     # Environment variables
+│   ├── .gitignore               # Project-level git ignore
+│   ├── README.md                # Updated to point to setup-documentation/
+│   └── db.sqlite3               # Local database file
+├── venv/                        # Python virtual environment
+├── README.md                    # Main project overview
+├── LICENSE                      # MIT License
+├── .gitignore                   # Root-level git ignore rules
+└── requirements.txt             # Root-level Python dependencies
 ```
 
 ## How New Users Will Set Up the Project
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/amazon-dispute-manager.git
+git clone https://github.com/ks-nachiketh/amazon-dispute-manager.git
 cd amazon-dispute-manager
 ```
 

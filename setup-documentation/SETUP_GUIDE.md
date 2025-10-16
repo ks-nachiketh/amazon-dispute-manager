@@ -94,9 +94,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 3. **Clone the project**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/amazon-dispute-manager.git
+   git clone https://github.com/ks-nachiketh/amazon-dispute-manager.git
    ```
-   > Replace `YOUR_USERNAME` with the actual GitHub username
 
 4. **Enter the project directory**:
    ```bash

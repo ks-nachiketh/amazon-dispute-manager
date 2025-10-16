@@ -109,18 +109,34 @@ Try these hosts in pgAdmin:
 ## 📁 Project Structure
 
 ```
-amazon_dispute_manager/
-├── docker-compose.yml          # Container configuration
-├── Dockerfile                  # Web app container setup
-├── requirements.txt           # Python dependencies
-├── .env                      # Environment variables
-├── manage.py                 # Django management
-├── core/                     # Main application
-│   ├── models.py            # Database models
-│   ├── views.py             # Web views
-│   ├── urls.py              # URL routing
-│   └── templates/           # HTML templates
-└── static/                   # CSS, JS, images
+amazon-dispute-manager/
+├── .github/                      # GitHub templates
+├── setup-documentation/          # Setup guides and scripts (outside project)
+│   ├── README.md                # Setup documentation overview
+│   ├── SETUP_GUIDE.md           # Complete setup guide
+│   ├── QUICK_REFERENCE.md       # This file
+│   ├── setup.ps1                # Windows setup script
+│   └── setup.sh                 # macOS/Linux setup script
+├── amazon_dispute_manager/       # Main Django project directory
+│   ├── amazon_dispute_manager/  # Django settings
+│   ├── core/                    # Main application
+│   │   ├── models.py            # Database models
+│   │   ├── views.py             # Web views
+│   │   ├── urls.py              # URL routing
+│   │   ├── templates/           # HTML templates
+│   │   └── static/              # CSS, JS, images
+│   ├── static/                  # Static files directory
+│   ├── staticfiles/             # Collected static files
+│   ├── docker-compose.yml       # Container configuration
+│   ├── Dockerfile               # Web app container setup
+│   ├── requirements.txt         # Python dependencies
+│   ├── .env                     # Environment variables
+│   ├── manage.py                # Django management
+│   └── db.sqlite3               # Local database
+├── venv/                        # Virtual environment
+├── README.md                    # Main project README
+├── LICENSE                      # MIT License
+└── .gitignore                   # Git ignore rules
 ```
 
 ## 🌐 Default Login Credentials
