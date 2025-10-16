@@ -197,15 +197,15 @@ For production deployment, consider these modifications:
 
 #### 1. **Port Already in Use**
 ```powershell
-# Check what's using port 8000
-netstat -ano | findstr :8000
+# Check what's using port 9000 (host port)
+netstat -ano | findstr :9000
 
 # Kill the process (replace PID with actual process ID)
 taskkill /PID <PID> /F
 
 # Or change port in docker-compose.yml
 ports:
-  - "8001:8000"  # Use port 8001 instead
+  - "9001:8000"  # Use host port 9001 instead (container stays on 8000)
 ```
 
 #### 2. **Database Connection Issues**

@@ -58,7 +58,7 @@ start() {
     print_status "Starting the application..."
     docker-compose up -d
     print_success "Application started successfully"
-    print_status "The application is running at: http://localhost:8000"
+    print_status "The application is running at: http://localhost:9000"
 }
 
 # Function to stop the application

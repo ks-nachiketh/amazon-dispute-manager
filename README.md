@@ -100,11 +100,9 @@ docker-compose exec web python manage.py createsuperuserdocker-compose exec web 
 
 
 
-**Access the application**: http://localhost:9000**Access the application**: http://localhost:9000
+**Access the application**: http://localhost:9000
 
-
-
-## 📚 Documentation## 📚 Documentation
+## 📚 Documentation
 
 
 
@@ -124,25 +122,16 @@ After setup, access these features:After setup, access these features:
 
 
 
-| Feature | URL | Description || Feature | URL | Description |
+| Feature | URL | Description |
+|---------|-----|-------------|
+| **Main Dashboard** | http://localhost:9000 | Homepage with navigation |
+| **Admin Panel** | http://localhost:9000/admin | Database management |
+| **Orders Management** | http://localhost:9000/orders/ | View and manage orders |
+| **Returns Tracking** | http://localhost:9000/returns/ | Monitor return requests |
+| **Dispute Resolution** | http://localhost:9000/disputes/ | Handle dispute cases |
+| **Analytics** | http://localhost:9000/analytics/ | Charts and insights |
 
-|---------|-----|-------------||---------|-----|-------------|
-
-| **Main Dashboard** | http://localhost:9000 | Homepage with navigation || **Main Dashboard** | http://localhost:9000 | Homepage with navigation |
-
-| **Admin Panel** | http://localhost:9000/admin | Database management || **Admin Panel** | http://localhost:9000/admin | Database management |
-
-| **Orders Management** | http://localhost:9000/orders/ | View and manage orders || **Orders Management** | http://localhost:9000/orders/ | View and manage orders |
-
-| **Returns Tracking** | http://localhost:9000/returns/ | Monitor return requests || **Returns Tracking** | http://localhost:9000/returns/ | Monitor return requests |
-
-| **Dispute Resolution** | http://localhost:9000/disputes/ | Handle dispute cases || **Dispute Resolution** | http://localhost:9000/disputes/ | Handle dispute cases |
-
-| **Analytics** | http://localhost:9000/analytics/ | Charts and insights || **Analytics** | http://localhost:9000/analytics/ | Charts and insights |
-
-
-
-## 🛠️ Technology Stack## 🛠️ Technology Stack
+## 🛠️ Technology Stack
 
 
 

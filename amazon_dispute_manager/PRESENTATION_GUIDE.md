@@ -7,7 +7,7 @@ This guide helps you create a comprehensive PowerPoint presentation with actual 
 ### 🖼️ Required Screenshots
 
 #### 1. **Homepage Dashboard** (`slide 1, 3`)
-- **URL:** `http://localhost:8000/`
+- **URL:** `http://localhost:9000/`
 - **Elements to capture:**
   - Amazon header with "Seller Central" branding
   - 4 navigation cards (Orders, Returns, Disputes, Analytics)
@@ -15,7 +15,7 @@ This guide helps you create a comprehensive PowerPoint presentation with actual 
   - Hover effects if possible
 
 #### 2. **Orders Management Dashboard** (`slide 4`)
-- **URL:** `http://localhost:8000/orders/`
+- **URL:** `http://localhost:9000/orders/`
 - **Elements to capture:**
   - Page header with orders icon and title
   - Action buttons (Back to Dashboard, Add Order, Delete Selected)
@@ -31,7 +31,7 @@ This guide helps you create a comprehensive PowerPoint presentation with actual 
   - HTMX-powered dynamic loading
 
 #### 4. **Returns Management Dashboard** (`slide 6`)
-- **URL:** `http://localhost:8000/returns/`
+- **URL:** `http://localhost:9000/returns/`
 - **Elements to capture:**
   - Page header with returns icon
   - Enhanced selection system (checkboxes)
@@ -39,7 +39,7 @@ This guide helps you create a comprehensive PowerPoint presentation with actual 
   - Bulk operation buttons
 
 #### 5. **Disputes Management Dashboard** (`slide 7`)
-- **URL:** `http://localhost:8000/disputes/`
+- **URL:** `http://localhost:9000/disputes/`
 - **Elements to capture:**
   - Disputes table with case IDs and status
   - Linked orders and returns information
@@ -54,7 +54,7 @@ This guide helps you create a comprehensive PowerPoint presentation with actual 
   - Connected milestone indicators
 
 #### 7. **Analytics Dashboard** (`slide 8`)
-- **URL:** `http://localhost:8000/analytics/`
+- **URL:** `http://localhost:9000/analytics/`
 - **Elements to capture:**
   - Key metrics cards (Open Disputes, Orders, Returns)
   - Color-coded numbers and icons

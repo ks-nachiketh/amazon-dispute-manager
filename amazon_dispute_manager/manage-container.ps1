@@ -78,7 +78,7 @@ function Start-App {
     docker-compose up -d
     if ($LASTEXITCODE -eq 0) {
         Write-Success "Application started successfully"
-        Write-Status "The application is running at: http://localhost:8000"
+        Write-Status "The application is running at: http://localhost:9000"
     } else {
         Write-Error "Failed to start application"
         exit $LASTEXITCODE
