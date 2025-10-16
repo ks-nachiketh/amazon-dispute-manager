@@ -52,7 +52,7 @@ The Amazon Dispute Manager is a full-featured web application that helps you:The
 
 
 
-**Windows:****Windows:**
+**Windows:**
 
 ```powershell```powershell
 
