@@ -1,0 +1,209 @@
+<!-- HTML5 DOCTYPE declaration for proper rendering -->
+<!doctype html>
+<html>
+<head>
+  <!-- Character encoding for proper text display -->
+  <meta charset="utf-8">
+  <!-- Page title displayed in browser tab -->
+  <title>Amazon Dispute Manager</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=">
+  <!-- Bootstrap 5.3.0 CSS framework for styling and responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Amazon Theme CSS -->
+  {% load static %}
+  <link href="{% static 'css/amazon-theme.css' %}" rel="stylesheet">
+  <!-- HTMX library for AJAX requests and dynamic content updates -->
+  <script src="https://unpkg.com/htmx.org@1.10.0/dist/htmx.min.js"></script>
+  <!-- Amazon-inspired custom styles -->
+  <style>
+    :root {
+      --amazon-orange: #FF9900;
+      --amazon-orange-dark: #E47911;
+      --amazon-blue: #232F3E;
+      --amazon-blue-dark: #131A22;
+      --amazon-light-blue: #37475A;
+      --amazon-gray: #EAEDED;
+      --amazon-dark-gray: #565959;
+      --amazon-white: #FFFFFF;
+    }
+
+    body {
+      font-family: "Amazon Ember", Arial, sans-serif;
+      background-color: var(--amazon-gray);
+      color: var(--amazon-blue);
+    }
+
+    .amazon-header {
+      background-color: var(--amazon-blue);
+      color: var(--amazon-white);
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .amazon-logo {
+      color: var(--amazon-white);
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+    }
+
+    .amazon-logo:hover {
+      color: var(--amazon-orange);
+    }
+
+    .btn-amazon-primary {
+      background-color: var(--amazon-orange);
+      border-color: var(--amazon-orange-dark);
+      color: var(--amazon-white);
+      font-weight: 500;
+      border-radius: 4px;
+    }
+
+    .btn-amazon-primary:hover {
+      background-color: var(--amazon-orange-dark);
+      border-color: var(--amazon-orange-dark);
+      color: var(--amazon-white);
+    }
+
+    .btn-amazon-secondary {
+      background-color: var(--amazon-white);
+      border-color: var(--amazon-dark-gray);
+      color: var(--amazon-blue);
+      font-weight: 500;
+      border-radius: 4px;
+    }
+
+    .btn-amazon-secondary:hover {
+      background-color: #F7F8F8;
+      border-color: var(--amazon-blue);
+      color: var(--amazon-blue);
+    }
+
+    .card {
+      border: 1px solid #D5D9D9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .table {
+      background-color: var(--amazon-white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .table th {
+      background-color: #F7F8F8;
+      border-bottom: 2px solid #D5D9D9;
+      font-weight: 600;
+      color: var(--amazon-blue);
+    }
+
+    .modal-content {
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .modal-header {
+      background-color: var(--amazon-blue);
+      color: var(--amazon-white);
+      border-bottom: none;
+    }
+
+    .btn-close {
+      filter: invert(1);
+    }
+
+    .container-amazon {
+      background-color: var(--amazon-white);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    /* Form styling */
+    .form-control, .form-select {
+      border: 1px solid #D5D9D9;
+      border-radius: 4px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--amazon-orange);
+      box-shadow: 0 0 0 0.2rem rgba(255, 153, 0, 0.25);
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: var(--amazon-blue);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Status badges */
+    .badge-amazon-success {
+      background-color: #198754;
+      color: white;
+    }
+
+    .badge-amazon-warning {
+      background-color: var(--amazon-orange);
+      color: white;
+    }
+
+    .badge-amazon-danger {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    /* Table enhancements */
+    .table tbody tr:hover {
+      background-color: #F7F8F8;
+    }
+
+    /* Checkbox styling */
+    .form-check-input:checked {
+      background-color: var(--amazon-orange);
+      border-color: var(--amazon-orange);
+    }
+  </style>
+</head>
+<body>
+  <!-- Amazon-style header -->
+  <header class="amazon-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col">
+          <a href="{% url 'core:homepage' %}" class="amazon-logo">
+            Amazon Dispute Manager
+          </a>
+        </div>
+        <div class="col-auto">
+          <small class="text-muted">Seller Central</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content container with Amazon styling -->
+  <div class="container">
+    <!-- Django template block where child templates inject their content -->
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Bootstrap JavaScript bundle for interactive components -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Django template block for child templates to add custom JavaScript -->
+  {% block scripts %}{% endblock %}
+</body>
+</html>

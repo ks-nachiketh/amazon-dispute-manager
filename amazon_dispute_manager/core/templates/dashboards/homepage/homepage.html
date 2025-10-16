@@ -1,0 +1,94 @@
+<!-- Extend base template for consistent layout -->
+{% extends "base.html" %}
+
+<!-- Main content block override -->
+{% block content %}
+<div class="container-amazon">
+  <!-- Welcome section with Amazon branding -->
+  <div class="row mb-4">
+    <div class="col">
+      <h1 class="h2 mb-3" style="color: var(--amazon-blue); font-weight: 400;">Seller Central Dashboard</h1>
+      <p class="text-muted">Manage your Amazon orders, returns, and disputes efficiently</p>
+    </div>
+  </div>
+
+  <!-- Navigation card container with flexbox layout for responsive design -->
+  <div class="row g-4">
+    
+    <!-- Orders management card -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <!-- Amazon-style icon placeholder -->
+          <div class="mb-3">
+            <i class="fas fa-box" style="font-size: 2rem; color: var(--amazon-orange);"></i>
+          </div>
+          <!-- Card title for orders section -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Orders</h5>
+          <!-- Description of orders functionality -->
+          <p class="card-text text-muted">View and manage your Amazon orders with detailed tracking.</p>
+          <!-- Navigation link to orders list page -->
+          <a href="{% url 'core:order_list' %}" class="btn btn-amazon-primary">Manage Orders</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Returns management card -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <!-- Amazon-style icon placeholder -->
+          <div class="mb-3">
+            <i class="fas fa-undo" style="font-size: 2rem; color: var(--amazon-orange);"></i>
+          </div>
+          <!-- Card title for returns section -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Returns</h5>
+          <!-- Description of returns functionality -->
+          <p class="card-text text-muted">Handle customer returns and process refunds efficiently.</p>
+          <!-- Navigation link to returns list page -->
+          <a href="{% url 'core:return_list' %}" class="btn btn-amazon-primary">Manage Returns</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disputes management card -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <!-- Amazon-style icon placeholder -->
+          <div class="mb-3">
+            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: var(--amazon-orange);"></i>
+          </div>
+          <!-- Card title for disputes section -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Disputes</h5>
+          <!-- Description of disputes functionality -->
+          <p class="card-text text-muted">Resolve customer disputes and A-to-Z claims.</p>
+          <!-- Navigation link to disputes list page -->
+          <a href="{% url 'core:dispute_list' %}" class="btn btn-amazon-primary">Manage Disputes</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Analytics dashboard card -->
+    <div class="col-md-6 col-lg-3">
+      <div class="card h-100">
+        <div class="card-body text-center">
+          <!-- Amazon-style icon placeholder -->
+          <div class="mb-3">
+            <i class="fas fa-chart-bar" style="font-size: 2rem; color: var(--amazon-orange);"></i>
+          </div>
+          <!-- Card title for analytics section -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Analytics</h5>
+          <!-- Description of analytics functionality -->
+          <p class="card-text text-muted">Track performance metrics and business insights.</p>
+          <!-- Navigation link to analytics dashboard page -->
+          <a href="{% url 'core:analytics_dashboard' %}" class="btn btn-amazon-primary">View Analytics</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}

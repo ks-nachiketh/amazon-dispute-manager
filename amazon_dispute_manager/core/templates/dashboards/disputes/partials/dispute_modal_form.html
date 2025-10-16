@@ -1,0 +1,27 @@
+<!-- Dispute creation form with HTMX functionality for dynamic submission -->
+<form id="dispute-create-form" method="post" action="{% url 'core:dispute_create' %}" 
+      hx-post="{% url 'core:dispute_create' %}" 
+      hx-target="#modal-body" 
+      hx-swap="innerHTML"
+      hx-on::after-request="if(event.detail.successful && event.detail.xhr.getResponseHeader('HX-Redirect')) { window.location.href = event.detail.xhr.getResponseHeader('HX-Redirect'); }">
+  
+      <!-- CSRF token for security protection -->
+  {% csrf_token %}
+  
+  <!-- Django form fields rendered as paragraphs -->
+  {{ form.as_p }}
+  
+  <!-- Form action buttons with flexbox layout -->
+  <div class="d-flex justify-content-end mt-4">
+   
+    <!-- Cancel button to close modal without saving -->
+    <button class="btn btn-amazon-secondary me-2" type="button" data-bs-dismiss="modal">
+      <i class="fas fa-times me-1"></i>Cancel
+    </button>
+    
+    <!-- Submit button to create the dispute -->
+    <button class="btn btn-amazon-primary" type="submit">
+      <i class="fas fa-paper-plane me-1"></i>Submit Dispute
+    </button>
+  </div>
+</form>

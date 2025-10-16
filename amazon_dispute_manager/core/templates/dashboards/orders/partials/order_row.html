@@ -1,0 +1,21 @@
+<!-- Order table row with unique ID and HTMX out-of-band swap configuration -->
+<tr id="order-{{ order.id }}" hx-swap-oob="true" hx-target="#orders-table-body" hx-swap="afterbegin">
+  
+  <!-- Checkbox for selecting this order for bulk operations -->
+  <td><input type="checkbox" name="selected_orders" value="{{ order.id }}"></td>
+  
+  <!-- Amazon order ID display -->
+  <td>{{ order.amazon_order_id }}</td>
+  
+  <!-- Order title/product name -->
+  <td>{{ order.title }}</td>
+  
+  <!-- Product SKU identifier -->
+  <td>{{ order.sku }}</td>
+  
+  <!-- Order amount/price -->
+  <td>{{ order.amount }}</td>
+  
+  <!-- Order date formatted as YYYY-MM-DD HH:MM -->
+  <td>{{ order.order_date|date:"Y-m-d H:i" }}</td>
+</tr>

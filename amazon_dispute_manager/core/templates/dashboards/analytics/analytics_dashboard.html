@@ -1,0 +1,133 @@
+<!-- Extend base template for consistent layout -->
+{% extends "base.html" %}
+
+<!-- Load static files template tag for CSS/JS resources -->
+{% load static %}
+
+<!-- Main content block override -->
+{% block content %}
+<div class="container-amazon">
+  <!-- Page header with Amazon styling -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-chart-bar me-2" style="color: var(--amazon-orange); font-size: 1.5rem;"></i>
+        <h1 class="h2 mb-0" style="color: var(--amazon-blue); font-weight: 400;">Analytics Dashboard</h1>
+      </div>
+      <p class="text-muted">Track performance metrics and business insights</p>
+    </div>
+    <div class="col-auto">
+      <!-- Navigation button to return to homepage -->
+      <a href="{% url 'core:homepage' %}" class="btn btn-amazon-secondary">
+        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Key metrics row with 3 equal columns -->
+  <div class="row g-4 mb-5">
+    
+    <!-- Open disputes metric card -->
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="mb-3">
+            <i class="fas fa-exclamation-circle" style="font-size: 2rem; color: #dc3545;"></i>
+          </div>
+          <!-- Card title for disputes count -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Open Disputes</h5>
+          <!-- Display dynamic count from Django context -->
+          <h2 class="text-danger">{{ open_disputes }}</h2>
+          <p class="card-text text-muted">Active cases requiring attention</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Open orders metric card -->
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="mb-3">
+            <i class="fas fa-box" style="font-size: 2rem; color: var(--amazon-orange);"></i>
+          </div>
+          <!-- Card title for orders count -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Open Orders</h5>
+          <!-- Display dynamic count from Django context -->
+          <h2 style="color: var(--amazon-orange);">{{ open_orders }}</h2>
+          <p class="card-text text-muted">Orders awaiting fulfillment</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Open returns metric card -->
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="mb-3">
+            <i class="fas fa-undo" style="font-size: 2rem; color: #6f42c1;"></i>
+          </div>
+          <!-- Card title for returns count -->
+          <h5 class="card-title" style="color: var(--amazon-blue);">Open Returns</h5>
+          <!-- Display dynamic count from Django context -->
+          <h2 style="color: #6f42c1;">{{ open_returns }}</h2>
+          <p class="card-text text-muted">Returns being processed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category-based analytics section -->
+  <h2 class="mt-5">Category Analytics</h2>
+  <div class="row">
+    
+    <!-- Disputes category breakdown -->
+    <div class="col-md-4">
+      <h5>Disputes</h5>
+      <ul>
+        
+        <!-- Loop through disputes analytics data -->
+        {% for item in category_analytics.disputes %}
+        
+        <!-- Display status and count for each dispute category -->
+        <li>{{ item.status }}: {{ item.count }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <!-- Orders category breakdown -->
+    <div class="col-md-4">
+      <h5>Orders</h5>
+      <ul>
+        
+        <!-- Loop through orders analytics data -->
+        {% for item in category_analytics.orders %}
+        
+        <!-- Display title and count for each order category -->
+        <li>{{ item.title }}: {{ item.count }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    
+    <!-- Returns category breakdown -->
+    <div class="col-md-4">
+      <h5>Returns</h5>
+      <ul>
+        
+        <!-- Loop through returns analytics data -->
+        {% for item in category_analytics.returns %}
+        
+        <!-- Display return reason and count for each return category -->
+        <li>{{ item.return_reason }}: {{ item.count }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- Custom scripts and styles block -->
+{% block scripts %}
+
+<!-- Load analytics dashboard specific CSS styling -->
+<link href="{% static 'css/dashboards/analytics/analytics_dashboard.css' %}" rel="stylesheet">
+{% endblock %}

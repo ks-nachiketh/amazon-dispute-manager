@@ -1,0 +1,31 @@
+<!-- Dispute table row with unique ID and HTMX out-of-band swap configuration -->
+<tr id="dispute-{{ dispute.id }}" hx-swap-oob="true" hx-target="#disputes-table-body" hx-swap="afterbegin">
+  
+  <!-- Checkbox for selecting this dispute for bulk operations -->
+  <td><input type="checkbox" name="selected_disputes" value="{{ dispute.id }}"></td>
+  
+  <!-- Dispute case ID -->
+  <td>{{ dispute.case_id }}</td>
+  
+  <!-- Dispute title/description -->
+  <td>{{ dispute.title }}</td>
+  
+  <!-- Dispute status with human-readable display -->
+  <td>{{ dispute.get_status_display }}</td>
+  
+  <!-- Linked order information (conditionally displayed) -->
+  <td>{% if dispute.linked_order %}{{ dispute.linked_order.amazon_order_id }}{% endif %}</td>
+  
+  <!-- Linked returns information -->
+  <td>
+    
+    <!-- Loop through all linked returns -->
+    {% for r in dispute.linked_returns.all %}
+      
+    <!-- Display return ID and reason -->
+      <div>{{ r.amazon_return_id }} - {{ r.return_reason }}</div>
+    {% endfor %}
+  </td>
+  <!-- Dispute creation timestamp formatted as YYYY-MM-DD HH:MM -->
+  <td>{{ dispute.created_at|date:"Y-m-d H:i" }}</td>
+</tr>

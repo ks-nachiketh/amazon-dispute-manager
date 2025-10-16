@@ -1,0 +1,103 @@
+<!-- Extend base template for consistent layout -->
+{% extends "base.html" %}
+
+<!-- Load static files template tag for CSS/JS resources -->
+{% load static %}
+
+<!-- Main content block override -->
+{% block content %}
+<div class="container-amazon">
+  <!-- Page header with Amazon styling -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-undo me-2" style="color: var(--amazon-orange); font-size: 1.5rem;"></i>
+        <h1 class="h2 mb-0" style="color: var(--amazon-blue); font-weight: 400;">Returns Management</h1>
+      </div>
+      <p class="text-muted">Handle customer returns and process refunds efficiently</p>
+    </div>
+  </div>
+
+  <!-- Action buttons with Amazon styling -->
+  <div class="row mb-4">
+    <div class="col">
+      <!-- Navigation button to return to homepage -->
+      <a href="{% url 'core:homepage' %}" class="btn btn-amazon-secondary me-2">
+        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+      </a>
+
+      <!-- Add new return button with HTMX functionality -->
+      <button id="create-return-btn" class="btn btn-amazon-primary me-2" type="button"
+        hx-get="{% url 'core:return_create_modal' %}"
+        hx-target="#modal-body"
+        hx-swap="innerHTML"
+        data-bs-toggle="modal"
+        data-bs-target="#modal"
+        hx-on="htmx:afterSwap: if (event.detail.target && event.detail.target.id === 'modal-body') { showModal(); }">
+        <i class="fas fa-plus me-1"></i>Add Return
+      </button>
+
+      <!-- Delete selected returns button with JavaScript onclick handler -->
+      <button id="delete-return-btn" class="btn btn-outline-danger" type="button"
+        onclick="deleteSelectedReturns()">
+        <i class="fas fa-trash me-1"></i>Delete Selected
+      </button>
+    </div>
+  </div>
+
+<!-- Returns data table with Bootstrap styling -->
+<table class="table">
+  
+  <!-- Table header with column definitions -->
+  <thead>
+    <tr>
+      <!-- Master checkbox for selecting all returns -->
+      <th><input type="checkbox" id="select-all" onclick="toggleSelectAll(this)"></th>
+      <!-- Column headers for return data -->
+      <th>Order</th>
+      <th>Reason</th>
+      <th>Tracking</th>
+      <th>Date</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  
+  <!-- Table body with HTMX out-of-band swap for dynamic updates -->
+  <tbody id="returns-table-body" hx-swap-oob="true">
+    <!-- Loop through returns from Django context -->
+    {% for return in returns %}
+      <!-- Include return row partial template for each return -->
+      {% include "dashboards/returns/partials/return_row.html" %}
+    {% empty %}
+      <!-- Display message when no returns exist -->
+      <tr><td colspan="6">No returns</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<!-- Bootstrap modal for return creation/editing -->
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Modal header with title and close button -->
+      <div class="modal-header">
+        <h5 class="modal-title">Create Return</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal body where HTMX content will be loaded -->
+      <div class="modal-body" id="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- Custom scripts block -->
+{% block scripts %}
+<script>
+  // Set up URLs for JavaScript functionality
+  window.returnDeleteUrl = "{% url 'core:return_delete' %}";
+</script>
+<!-- Load return list specific JavaScript functionality -->
+<script src="{% static 'js/dashboards/returns/return_list.js' %}"></script>
+{% endblock %}

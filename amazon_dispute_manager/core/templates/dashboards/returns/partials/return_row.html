@@ -1,0 +1,21 @@
+<!-- Return table row with unique ID and HTMX out-of-band swap configuration -->
+<tr id="return-{{ return.id }}" hx-swap-oob="true" hx-target="#returns-table-body" hx-swap="afterbegin">
+  
+  <!-- Checkbox for selecting this return for bulk operations -->
+  <td><input type="checkbox" name="selected_returns" value="{{ return.id }}"></td>
+  
+  <!-- Associated order's Amazon ID -->
+  <td>{{ return.order.amazon_order_id }}</td>
+  
+  <!-- Reason for the return -->
+  <td>{{ return.return_reason }}</td>
+  
+  <!-- Tracking number for the returned package -->
+  <td>{{ return.tracking_number }}</td>
+  
+  <!-- Return date formatted as YYYY-MM-DD HH:MM -->
+  <td>{{ return.return_date|date:"Y-m-d H:i" }}</td>
+  
+  <!-- Condition of item when returned -->
+  <td>{{ return.condition_on_return }}</td>
+</tr>

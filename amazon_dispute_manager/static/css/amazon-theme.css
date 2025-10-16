@@ -1,0 +1,252 @@
+/* Amazon Theme CSS */
+
+:root {
+  --amazon-orange: #FF9900;
+  --amazon-orange-dark: #E47911;
+  --amazon-blue: #232F3E;
+  --amazon-blue-dark: #131A22;
+  --amazon-light-blue: #37475A;
+  --amazon-gray: #EAEDED;
+  --amazon-dark-gray: #565959;
+  --amazon-white: #FFFFFF;
+  --amazon-success: #198754;
+  --amazon-warning: #ffc107;
+  --amazon-danger: #dc3545;
+}
+
+/* Typography */
+body {
+  font-family: "Amazon Ember", Arial, sans-serif;
+  background-color: var(--amazon-gray);
+  color: var(--amazon-blue);
+}
+
+/* Header Styling */
+.amazon-header {
+  background: linear-gradient(135deg, var(--amazon-blue) 0%, var(--amazon-blue-dark) 100%);
+  color: var(--amazon-white);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.amazon-logo {
+  color: var(--amazon-white);
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.amazon-logo:hover {
+  color: var(--amazon-orange);
+}
+
+/* Button Styles */
+.btn-amazon-primary {
+  background-color: var(--amazon-orange);
+  border-color: var(--amazon-orange-dark);
+  color: var(--amazon-white);
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-amazon-primary:hover {
+  background-color: var(--amazon-orange-dark);
+  border-color: var(--amazon-orange-dark);
+  color: var(--amazon-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 153, 0, 0.3);
+}
+
+.btn-amazon-secondary {
+  background-color: var(--amazon-white);
+  border-color: var(--amazon-dark-gray);
+  color: var(--amazon-blue);
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-amazon-secondary:hover {
+  background-color: #F7F8F8;
+  border-color: var(--amazon-blue);
+  color: var(--amazon-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Card Styles */
+.card {
+  border: 1px solid #D5D9D9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  color: var(--amazon-blue);
+  font-weight: 600;
+}
+
+/* Container Styles */
+.container-amazon {
+  background-color: var(--amazon-white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+/* Table Styles */
+.table {
+  background-color: var(--amazon-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.table th {
+  background-color: #F7F8F8;
+  border-bottom: 2px solid #D5D9D9;
+  font-weight: 600;
+  color: var(--amazon-blue);
+  padding: 12px;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #EAEDED;
+}
+
+.table tbody tr:hover {
+  background-color: #F7F8F8;
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--amazon-blue) 0%, var(--amazon-blue-dark) 100%);
+  color: var(--amazon-white);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.btn-close {
+  filter: invert(1);
+}
+
+/* Form Styles */
+.form-control, .form-select {
+  border: 1px solid #D5D9D9;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--amazon-orange);
+  box-shadow: 0 0 0 0.2rem rgba(255, 153, 0, 0.25);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--amazon-blue);
+  margin-bottom: 0.5rem;
+}
+
+/* Status Badges */
+.badge-amazon-success {
+  background-color: var(--amazon-success);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.badge-amazon-warning {
+  background-color: var(--amazon-orange);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.badge-amazon-danger {
+  background-color: var(--amazon-danger);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Checkbox Styles */
+.form-check-input:checked {
+  background-color: var(--amazon-orange);
+  border-color: var(--amazon-orange);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 153, 0, 0.25);
+}
+
+/* Icon Styles */
+.amazon-icon {
+  color: var(--amazon-orange);
+  font-size: 1.2rem;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container-amazon {
+    padding: 1rem;
+    margin: 0 0.5rem 1rem 0.5rem;
+  }
+  
+  .amazon-header {
+    text-align: center;
+  }
+  
+  .btn-amazon-primary, .btn-amazon-secondary {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Loading States */
+.btn-amazon-primary:disabled,
+.btn-amazon-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Focus States for Accessibility */
+.btn-amazon-primary:focus,
+.btn-amazon-secondary:focus {
+  outline: 2px solid var(--amazon-orange);
+  outline-offset: 2px;
+}

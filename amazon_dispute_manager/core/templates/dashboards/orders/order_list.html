@@ -1,0 +1,113 @@
+<!-- Extend base template for consistent layout -->
+{% extends "base.html" %}
+<!-- Load static files template tag for CSS/JS resources -->
+{% load static %}
+
+<!-- Main content block override -->
+{% block content %}
+<div class="container-amazon">
+  <!-- Page header with Amazon styling -->
+  <div class="row mb-4">
+    <div class="col">
+      <div class="d-flex align-items-center mb-3">
+        <i class="fas fa-box me-2" style="color: var(--amazon-orange); font-size: 1.5rem;"></i>
+        <h1 class="h2 mb-0" style="color: var(--amazon-blue); font-weight: 400;">Orders Management</h1>
+      </div>
+      <p class="text-muted">View, manage, and track your Amazon orders</p>
+    </div>
+  </div>
+
+  <!-- Action buttons with Amazon styling -->
+  <div class="row mb-4">
+    <div class="col">
+      <!-- Navigation button to return to homepage -->
+      <a href="{% url 'core:homepage' %}" class="btn btn-amazon-secondary me-2">
+        <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+      </a>
+
+      <!-- Add new order button with HTMX functionality -->
+      <button id="create-order-btn" class="btn btn-amazon-primary me-2" type="button"
+        hx-get="{% url 'core:order_create_modal' %}"
+        hx-target="#modal-body"
+        hx-swap="innerHTML"
+        data-bs-toggle="modal"
+        data-bs-target="#modal"
+        hx-on="htmx:afterSwap: if (event.detail.target && event.detail.target.id === 'modal-body') { showModal(); }">
+        <i class="fas fa-plus me-1"></i>Add Order
+      </button>
+
+      <!-- Delete selected orders button with JavaScript onclick handler -->
+      <button id="delete-order-btn" class="btn btn-outline-danger" type="button"
+        onclick="deleteSelectedOrders()">
+        <i class="fas fa-trash me-1"></i>Delete Selected
+      </button>
+    </div>
+  </div>
+
+<!-- Orders data table with Bootstrap styling -->
+<table class="table">
+
+  <!-- Table header with column definitions -->
+  <thead>
+    <tr>
+
+      <!-- Master checkbox for selecting all orders -->
+      <th><input type="checkbox" id="select-all" onclick="toggleSelectAll(this)"></th>
+     
+      <!-- Column headers for order data -->
+      <th>Order</th>
+      <th>Title</th>
+      <th>SKU</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  
+  <!-- Table body with HTMX out-of-band swap for dynamic updates -->
+  <tbody id="orders-table-body" hx-swap-oob="true">
+
+    <!-- Loop through orders from Django context -->
+    {% for order in orders %}
+
+      <!-- Include order row partial template for each order -->
+      {% include "dashboards/orders/partials/order_row.html" %}
+    {% empty %}
+
+      <!-- Display message when no orders exist -->
+      <tr><td colspan="6">No orders</td></tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+<!-- Bootstrap modal for order creation/editing -->
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+
+    <div class="modal-content">
+
+      <!-- Modal header with title and close button -->
+      <div class="modal-header">
+        <h5 class="modal-title">Create Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body where HTMX content will be loaded -->
+      <div class="modal-body" id="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- Custom scripts block -->
+{% block scripts %}
+<script>
+
+  // Set up URLs for JavaScript functionality
+  window.orderDeleteUrl = "{% url 'core:order_delete' %}";
+</script>
+
+<!-- Load order list specific JavaScript functionality -->
+<script src="{% static 'js/dashboards/orders/order_list.js' %}"></script>
+{% endblock %}

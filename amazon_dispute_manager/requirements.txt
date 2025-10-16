@@ -1,0 +1,6 @@
+# Core dependencies
+Django==5.2.7
+psycopg2-binary==2.9.10
+# Use a compatible django-extensions release available on PyPI
+django-extensions==4.1.0
+# Add additional dependencies used by your project here
